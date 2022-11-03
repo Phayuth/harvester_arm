@@ -1,0 +1,3 @@
+<launch>
+    <node pkg="harvester_arm" name="pick_and_place" type="pick_and_place_gripper.py" output="screen"/>
+</launch>
