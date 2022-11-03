@@ -1,19 +1,17 @@
 # Harvester Arm Robot
 This package is written for the harvesting arm robot in my lab. It is written for Ubuntu 18.04 with ROS Melodic.[For Mom!]
 
-
 ## Quickstart (Run if the whole system has been setup before)
-Bring Up robot
+
+### Bring Up robot
 ```
 roslaunch ur_robot_driver ur5_bringup.launch robot_ip:=192.168.1.102 [reverse_port:=REVERSE_PORT] kinematics_config:=$(rospack find ur_calibration)/etc/ex-ur5_calibration.yaml
+```
 
-```
-#### For Moveit
-```
-roslaunch ur5_moveit_config moveit_planning_execution.launch 
+### For Moveit
+Bring Up planning node : ```roslaunch ur5_moveit_config moveit_planning_execution.launch```
 
-roslaunch ur5_moveit_config moveit_rviz.launch rviz_config:=$(rospack find ur5_moveit_config)/launch/moveit.rviz
-```
+Bring Up Moveit Rviz : ```roslaunch ur5_moveit_config moveit_rviz.launch rviz_config:=$(rospack find ur5_moveit_config)/launch/moveit.rviz```
 
 ## Installation
 ### Connection Setup
@@ -34,7 +32,7 @@ catkin_make
 source devel/setup.bash
 ```
 
-#### First Time Only for Downloading calibration file from Robot
+### Downloading Calibration File from Robot ( First Time Only )
 Create Folder
 ```
 cd ~/ws_arm/src/Universal_Robots_ROS_Driver/ur_calibration
@@ -43,7 +41,6 @@ mkdir etc
 Download by calling
 ```
 roslaunch ur_calibration calibration_correction.launch robot_ip:={qqq.qqq.qqq.qqq} target_filename:="$(rospack find ur_calibration)/etc/ex-ur5_calibration.yaml"
-
 ```
 
 
